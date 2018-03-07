@@ -1,0 +1,44 @@
+{
+  "name": "qcloud-image-sdk",
+  "version": "1.0.0",
+  "description": "qcloud image sdk for nodejs",
+  "keywords": [
+    "image",
+    "qcloud",
+    "sdk",
+    "nodejs"
+  ],
+  "author": "Yanbin Zhu <zhuyanbin@hfbank.com.cn>",
+  "license": "MIT",
+  "main": "./index.js",
+  "scripts": {
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc report --reporter=html",
+    "test": "nyc --cache mocha ./test/*.js",
+    "lint": "eslint . --fix && npm run coverage"
+  },
+  "dependencies": {
+    "crypto-js": "3.1.9-1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "coveralls": "3.0.0",
+    "eslint": "4.18.2",
+    "mocha": "5.0.3",
+    "nyc": "11.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:flavorzyb/qcloud-image-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flavorzyb/qcloud-image-sdk/issues"
+  },
+  "homepage": "https://github.com/flavorzyb/qcloud-image-sdk",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  }
+}
