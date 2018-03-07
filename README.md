@@ -3,7 +3,7 @@
 ## 安装
 
 ```bash
-npm install 
+npm install qcloud-image-sdk
 ```
 
 ## 范例 
