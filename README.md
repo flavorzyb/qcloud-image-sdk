@@ -6,4 +6,12 @@
 npm install qcloud-image-sdk
 ```
 
+## 运行单元测试
+
+将test目录中的config.sample.js重命名为config.js并修改为正确的配置项
+
+```bash
+npm run test
+```
+
 ## 范例 
