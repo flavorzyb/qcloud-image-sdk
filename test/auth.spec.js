@@ -10,7 +10,7 @@ describe('Auth Class Test Case', function () {
         assert.strictEqual(auth.secretId, 'secretId');
         assert.strictEqual(auth.secretKey, 'secretKey');
 
-        let result = auth.sign("test", 3600);
+        let result = auth.sign("test");
         assert.equal(true, result.length >= 0);
 
         result = auth.sign("test", 0);

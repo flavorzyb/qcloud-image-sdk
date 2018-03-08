@@ -1,0 +1,37 @@
+'use strict';
+const assert = require('assert');
+const FileUtil = require('../lib/file-util');
+
+describe('FileUtil Class Test Case', function () {
+    it('test getFileMd5String success', function (done) {
+        FileUtil.getFileMd5String(__dirname + '/test.jpg')
+            .then((data) => {
+                done();
+                assert.equal(32, data.length);
+            })
+            .catch((err)=>{
+                done();
+                assert.fail(err);
+            });
+    });
+
+    it('test getFileMd5String fail', function (done) {
+        FileUtil.getFileMd5String(__dirname + '/test_no_exist.jpg')
+            .then((data) => {
+                done();
+                assert.fail(data);
+            })
+            .catch((err)=>{
+                done();
+                assert.notEqual(null, err);
+            });
+    });
+
+    it('test getFileExtName success', function () {
+        assert.equal('', FileUtil.getFileExtName(''));
+        assert.equal('', FileUtil.getFileExtName('.'));
+        assert.equal('ext', FileUtil.getFileExtName('.ext'));
+        assert.equal('png', FileUtil.getFileExtName('test.png'));
+        assert.equal('png', FileUtil.getFileExtName('/tmp/aaa/bbb.test.png'));
+    });
+});

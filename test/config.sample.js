@@ -32,6 +32,14 @@ class Config {
     get bucket() {
         return '';
     }
+
+    /**
+     * region
+     * @return {string}
+     */
+    get region() {
+        return '';
+    }
 }
 
 const config = new Config();
