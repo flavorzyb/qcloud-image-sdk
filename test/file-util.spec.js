@@ -34,4 +34,28 @@ describe('FileUtil Class Test Case', function () {
         assert.equal('png', FileUtil.getFileExtName('test.png'));
         assert.equal('png', FileUtil.getFileExtName('/tmp/aaa/bbb.test.png'));
     });
+
+    it('test getMd5StringFilePath success', function (done) {
+        FileUtil.getMd5StringFilePath(__dirname + '/test.jpg')
+            .then((result) => {
+                done();
+                assert.equal(true, result.length > 32);
+            })
+            .catch((err) => {
+                done();
+                assert.fail(err);
+            });
+    });
+
+    it('test getMd5StringFilePath fail', function (done) {
+        FileUtil.getMd5StringFilePath(__dirname + '/test_no_exist.jpg')
+            .then((result) => {
+                done();
+                assert.fail(result);
+            })
+            .catch((err) => {
+                done();
+                assert.notEqual(null, err);
+            });
+    });
 });
