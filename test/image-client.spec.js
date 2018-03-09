@@ -95,6 +95,7 @@ describe('Image Client Class Test Case',  () => {
 
     it('test idCardDetect success', function (done) {
         muk(FileUtil, 'getMd5StringFilePath', function () {
+            return Promise.resolve('abcdet');
         });
         client.idCardDetect(__dirname + "/id_card_front.jpg")
             .then((data) => {
