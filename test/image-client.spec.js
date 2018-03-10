@@ -241,4 +241,26 @@ describe('Image Client Class Test Case', () => {
                 assert.notEqual(null, err);
             });
     });
+
+    it('test request timeout', function (done) {
+        nock('https://service.image.myqcloud.com').post('/face/idcardlivedetectfour').delay(20).reply(400, {});
+
+        const options = {
+            uri: 'https://service.image.myqcloud.com/face/idcardlivedetectfour',
+            body: {appId: 'appId'},
+            timeout: 10,
+            json: true,
+            method: 'POST',
+            headers: {host: 'service.image.myqcloud.com'},
+        };
+        client.request(options)
+            .then((data) => {
+                done();
+                assert.fail(data);
+            })
+            .catch((err) => {
+                done();
+                assert.notEqual(null, err);
+            });
+    });
 });
