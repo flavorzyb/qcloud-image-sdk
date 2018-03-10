@@ -32,9 +32,9 @@ npm run test-coverage
 ```javascript
 const sdk = require('qcloud-image-sdk');
 const fs = require('fs');
+const path = require('path');
 
 const config = new sdk.QCloudConfig('appId', 'secretId', 'secretKey', 'bucket', 'region');
-
 const client = new sdk.ImageClient(config);
 
 /**
@@ -51,7 +51,7 @@ client.liveGet()
 /**
  * 检测身份证
  */
-client.idCardDetect(__dirname + '/test.jpg')
+client.idCardDetect(path.join(__dirname, 'test.jpg'))
     .then((data) => {
         console.log(data);
     })
@@ -62,7 +62,7 @@ client.idCardDetect(__dirname + '/test.jpg')
 /**
  * 活体检测
  */
-client.idCardLiveDetect(__dirname + '/test.mp4', '8603', '艾米', '4522876121211222222')
+client.idCardLiveDetect(path.join(__dirname, 'test.mp4'), '8603', '艾米', '4522876121211222222')
     .then((data) => {
         console.log(data);
     })
@@ -73,7 +73,7 @@ client.idCardLiveDetect(__dirname + '/test.mp4', '8603', '艾米', '452287612121
 /**
  * 计算文件的md5值，例如：60924334a39ea59142317320e86fcda2
  */
-sdk.FileUtil.getFileMd5String(__dirname + '/test.js')
+sdk.FileUtil.getFileMd5String(path.join(__dirname, 'test.js'))
     .then((data) => {
         console.log(data);
     })
@@ -82,16 +82,11 @@ sdk.FileUtil.getFileMd5String(__dirname + '/test.js')
     });
 
 /**
- * 获取文件的扩展名，例如：js
- */
-const extName = sdk.FileUtil.getFileExtName(__dirname + '/test.js');
-
-/**
  * 获取文件的完整md5路径
  * 例如：
  *      60/92/60924334a39ea59142317320e86fcda2.js
  */
-sdk.FileUtil.getMd5StringFilePath(__dirname + '/test.js')
+sdk.FileUtil.getMd5StringFilePath(path.join(__dirname, 'test.js'))
     .then((data) => {
         console.log(data);
     })
@@ -102,7 +97,7 @@ sdk.FileUtil.getMd5StringFilePath(__dirname + '/test.js')
 /**
  * 获取流文件的MD5值
  */
-sdk.FileUtil.getStreamMd5String(fs.createReadStream(__dirname + '/test.js'))
+sdk.FileUtil.getStreamMd5String(fs.createReadStream(path.join(__dirname, 'test.js')))
     .then((data) => {
         console.log(data);
     })
