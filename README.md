@@ -1,7 +1,8 @@
 # 腾讯云智能图像服务 SDK for NodeJs
 
 [![Build Status](https://travis-ci.org/flavorzyb/qcloud-image-sdk.svg?branch=master)](https://travis-ci.org/flavorzyb/qcloud-image-sdk)
-[![Coverage Status](https://coveralls.io/repos/NodeRedis/node_redis/badge.svg?branch=)](https://coveralls.io/r/NodeRedis/node_redis?branch=)
+
+[![Coverage Status](https://coveralls.io/repos/github/flavorzyb/qcloud-image-sdk/badge.svg?branch=master)](https://coveralls.io/github/flavorzyb/qcloud-image-sdk?branch=master)
 
 ## 安装
 

@@ -27,8 +27,6 @@ jobs:
       script: npm run test
     - node_js: 6
       script: npm run test
-    - node_js: 4
-      script: npm run test
     - node_js: lts/*
       env: coverage
       script:
