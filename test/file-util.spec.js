@@ -1,11 +1,13 @@
 'use strict';
 const assert = require('assert');
 const fs = require('fs');
+const path = require('path');
 const FileUtil = require('../lib/file-util');
+
 
 describe('FileUtil Class Test Case', function () {
     it('test getFileMd5String success', function (done) {
-        FileUtil.getFileMd5String(__dirname + '/test.jpg')
+        FileUtil.getFileMd5String(path.join(__dirname, 'test.jpg'))
             .then((data) => {
                 done();
                 assert.equal(32, data.length);
@@ -17,7 +19,7 @@ describe('FileUtil Class Test Case', function () {
     });
 
     it('test getFileMd5String fail', function (done) {
-        FileUtil.getFileMd5String(__dirname + '/test_no_exist.jpg')
+        FileUtil.getFileMd5String(path.join(__dirname, 'test_no_exist.jpg'))
             .then((data) => {
                 done();
                 assert.fail(data);
@@ -28,16 +30,8 @@ describe('FileUtil Class Test Case', function () {
             });
     });
 
-    it('test getFileExtName success', function () {
-        assert.equal('', FileUtil.getFileExtName(''));
-        assert.equal('', FileUtil.getFileExtName('.'));
-        assert.equal('ext', FileUtil.getFileExtName('.ext'));
-        assert.equal('png', FileUtil.getFileExtName('test.png'));
-        assert.equal('png', FileUtil.getFileExtName('/tmp/aaa/bbb.test.png'));
-    });
-
     it('test getMd5StringFilePath success', function (done) {
-        FileUtil.getMd5StringFilePath(__dirname + '/test.jpg')
+        FileUtil.getMd5StringFilePath(path.join(__dirname, 'test.jpg'))
             .then((result) => {
                 done();
                 assert.equal(true, result.length > 32);
@@ -49,7 +43,7 @@ describe('FileUtil Class Test Case', function () {
     });
 
     it('test getMd5StringFilePath fail', function (done) {
-        FileUtil.getMd5StringFilePath(__dirname + '/test_no_exist.jpg')
+        FileUtil.getMd5StringFilePath(path.join(__dirname, 'test_no_exist.jpg'))
             .then((result) => {
                 done();
                 assert.fail(result);
@@ -61,7 +55,7 @@ describe('FileUtil Class Test Case', function () {
     });
 
     it('test getStreamMd5String success', function (done) {
-        FileUtil.getStreamMd5String(fs.createReadStream(__dirname + '/test.jpg'))
+        FileUtil.getStreamMd5String(fs.createReadStream(path.join(__dirname, 'test.jpg')))
             .then((result) => {
                 done();
                 assert.equal(true, result.length === 32);
@@ -73,7 +67,7 @@ describe('FileUtil Class Test Case', function () {
     });
 
     it('test getStreamMd5String fail', function (done) {
-        FileUtil.getStreamMd5String(fs.createReadStream(__dirname + '/test_no_exist.jpg'))
+        FileUtil.getStreamMd5String(fs.createReadStream(path.join(__dirname, 'test_no_exist.jpg')))
             .then((result) => {
                 done();
                 assert.fail(result);
