@@ -1,9 +1,17 @@
 'use strict';
 
-const FileUtil = require('./lib/file-util');
-const QCloudConfig = require('./lib/qcloud-config');
-const ImageClient = require('./lib/image-client');
+/**
+ *
+ * @type {FileUtil}
+ */
+exports.FileUtil = require('./lib/file-util');
 
-exports.FileUtil = FileUtil;
-exports.QCloudConfig = QCloudConfig;
-exports.ImageClient = ImageClient;
+/**
+ * @type {QCloudConfig}
+ */
+exports.QCloudConfig = require('./lib/qcloud-config');
+
+/**
+ * @type {ImageClient}
+ */
+exports.ImageClient = require('./lib/image-client');
