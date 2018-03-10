@@ -1,7 +1,10 @@
 # 腾讯云智能图像服务 SDK for NodeJs
 
+[![npm](https://img.shields.io/npm/v/qcloud-image-sdk.svg)](https://www.npmjs.com/package/qcloud-image-sdk)
+[![npm](https://img.shields.io/npm/dm/qcloud-image-sdk.svg)](https://www.npmjs.com/package/qcloud-image-sdk)
 [![Build Status](https://travis-ci.org/flavorzyb/qcloud-image-sdk.svg?branch=master)](https://travis-ci.org/flavorzyb/qcloud-image-sdk)
 [![Coverage Status](https://coveralls.io/repos/github/flavorzyb/qcloud-image-sdk/badge.svg?branch=master)](https://coveralls.io/github/flavorzyb/qcloud-image-sdk?branch=master)
+[![npm](https://img.shields.io/npm/l/express.svg)](https://opensource.org/licenses/MIT)
 
 ## 安装
 
