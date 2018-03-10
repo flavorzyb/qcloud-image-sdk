@@ -1,6 +1,6 @@
 {
     "name": "qcloud-image-sdk",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "description": "qcloud image sdk for nodejs",
     "keywords": [
         "image",
