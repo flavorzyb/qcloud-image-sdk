@@ -1,6 +1,6 @@
 {
     "name": "qcloud-image-sdk",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "qcloud image sdk for nodejs",
     "keywords": [
         "image",
@@ -29,7 +29,7 @@
     "devDependencies": {
         "coveralls": "3.0.0",
         "eslint": "4.18.2",
-        "mocha": "5.0.3",
+        "mocha": "5.0.4",
         "muk": "0.5.3",
         "nock": "9.2.3",
         "nyc": "11.4.1"
