@@ -170,7 +170,7 @@ describe('Image Client Class Test Case', () => {
         };
         nock('https://recognition.image.myqcloud.com').post('/ocr/idcard').reply(400, result);
 
-        client.idCardDetect(path.join(__dirname, 'test.jpg'))
+        client.idCardDetect(path.join(__dirname, 'test.jpg'), false)
             .then((data) => {
                 done();
                 assert.fail(data);
