@@ -11,7 +11,7 @@ const COSFactory = require('../lib/cos-factory');
 const FileUtil = require('../lib/file-util');
 
 describe('Image Client Class Test Case', () => {
-    const config = new QCloudConfig('appId', 'secretId', 'secretKey', 'bucket', 'region');
+    const config = new QCloudConfig('appId', 'secretId', 'secretKey', 'bucket', 'region', 'proxy');
     const client = new ImageClient(config);
 
     afterEach(function () {
@@ -27,6 +27,7 @@ describe('Image Client Class Test Case', () => {
             'message':'OK'
         };
         nock('https://service.image.myqcloud.com').post('/face/livegetfour').reply(200, result);
+        const  client = new ImageClient(new QCloudConfig('appId', 'secretId', 'secretKey', 'bucket', 'region', ''));
         client.liveGet()
             .then((data) => {
                 done();
@@ -155,6 +156,8 @@ describe('Image Client Class Test Case', () => {
     });
 
     it('test idCardDetect fail', function (done) {
+        const  client = new ImageClient(new QCloudConfig('appId', 'secretId', 'secretKey', 'bucket', 'region', ''));
+
         muk(FileUtil, 'getMd5StringFilePath', function () {
             return Promise.resolve('ob/n9/obn9hw5pzgf0346i80lu9rwglfxuoa7j.jpg');
         });
@@ -230,7 +233,7 @@ describe('Image Client Class Test Case', () => {
             'data': {}
         };
         nock('https://service.image.myqcloud.com').post('/face/idcardlivedetectfour').reply(400, result);
-
+        const  client = new ImageClient(new QCloudConfig('appId', 'secretId', 'secretKey', 'bucket', 'region', ''));
         client.idCardLiveDetect(path.join(__dirname, '1520487845679.mp4'), '1234', '艾米', '12345677899')
             .then((data) => {
                 done();
